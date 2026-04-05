@@ -10,6 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--gold:#c9a84c;
+--cream:#f0ece0;
+--black:#0a0a0a;
+}
+
 *{
 margin:0;
 padding:0;
@@ -17,79 +24,71 @@ box-sizing:border-box;
 }
 
 body{
-background:#0a0a0a;
-color:#f0ece0;
+background:var(--black);
+color:var(--cream);
 font-family:'Inter', sans-serif;
-line-height:1.6;
 overflow-x:hidden;
-}
-
-/* GLOBAL */
-section{
-padding:80px 20px;
-max-width:1200px;
-margin:auto;
-}
-
-h1,h2,h3{
-font-family:'Cormorant Garamond', serif;
-letter-spacing:1px;
-}
-
-/* HEADER */
-header{
-text-align:center;
-padding:30px 20px;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-header img{
-width:180px;
-margin-bottom:10px;
-}
-
-header p{
-color:#aaa;
 }
 
 /* HERO */
 .hero{
-height:90vh;
+height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');
+background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1519741497674-611481863552');
 background-size:cover;
 background-position:center;
 }
 
+.hero-content{
+max-width:700px;
+animation:fadeUp 1.2s ease;
+}
+
 .hero h1{
+font-family:'Cormorant Garamond', serif;
 font-size:60px;
-color:#c9a84c;
+letter-spacing:2px;
+margin-bottom:20px;
 }
 
 .hero p{
-margin-top:15px;
 font-size:18px;
-color:#ddd;
+color:#ccc;
+margin-bottom:30px;
 }
 
-.hero a{
+.btn{
 display:inline-block;
-margin-top:25px;
 padding:12px 30px;
-background:#c9a84c;
-color:#000;
+border:1px solid var(--gold);
+color:var(--gold);
 text-decoration:none;
-font-weight:bold;
 transition:0.3s;
 }
 
-.hero a:hover{
-background:#e0c36d;
+.btn:hover{
+background:var(--gold);
+color:#000;
+}
+
+/* SECTION */
+section{
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+/* HEADINGS */
+h2{
+font-family:'Cormorant Garamond', serif;
+font-size:40px;
+text-align:center;
+margin-bottom:40px;
+color:var(--gold);
 }
 
 /* SERVICES */
@@ -97,175 +96,162 @@ background:#e0c36d;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
-margin-top:40px;
 }
 
 .card{
 background:#111;
 padding:30px;
-border-radius:10px;
 border:1px solid rgba(255,255,255,0.05);
 transition:0.4s;
+position:relative;
+overflow:hidden;
 }
 
 .card:hover{
 transform:translateY(-10px);
-border-color:#c9a84c;
+border-color:var(--gold);
 }
 
 .card h3{
-color:#c9a84c;
+font-family:'Cormorant Garamond', serif;
 margin-bottom:10px;
 }
 
 .card p{
-color:#ccc;
+color:#aaa;
 }
 
 /* TESTIMONIAL */
 .testimonial{
 text-align:center;
-max-width:800px;
+max-width:700px;
 margin:auto;
-}
-
-.testimonial p{
 font-style:italic;
-color:#ddd;
+color:#ccc;
 }
 
-.testimonial h4{
+.testimonial strong{
+display:block;
 margin-top:15px;
-color:#c9a84c;
+color:var(--gold);
 }
 
 /* CTA */
 .cta{
 text-align:center;
+padding:100px 20px;
 background:#111;
-padding:60px 20px;
-border-top:1px solid rgba(255,255,255,0.08);
-border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .cta h2{
-font-size:36px;
-margin-bottom:15px;
-}
-
-.cta a{
-display:inline-block;
-margin-top:15px;
-padding:14px 35px;
-background:#c9a84c;
-color:#000;
-font-weight:bold;
-text-decoration:none;
-transition:0.3s;
-}
-
-.cta a:hover{
-background:#e0c36d;
+margin-bottom:20px;
 }
 
 /* FOOTER */
 footer{
 text-align:center;
-padding:20px;
+padding:30px;
 color:#777;
+font-size:14px;
 }
 
 /* ANIMATION */
-.fade{
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* SCROLL REVEAL */
+.reveal{
 opacity:0;
 transform:translateY(40px);
 transition:1s;
 }
 
-.fade.show{
+.reveal.active{
 opacity:1;
 transform:translateY(0);
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-.hero h1{
-font-size:36px;
-}
-}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-<img src="https://i.ibb.co/DH5NWF0r/Screenshot-2026-03-14-012110.png">
-<p>Luxury Wedding & Event Management</p>
-</header>
-
 <!-- HERO -->
 <section class="hero">
-<div>
-<h1>Crafting Timeless Experiences</h1>
-<p>Where luxury meets perfection in every celebration</p>
-<a href="#contact">Book Your Event</a>
+<div class="hero-content">
+<h1>Nick Event's</h1>
+<p>Crafting unforgettable luxury experiences with precision, elegance, and power.</p>
+<a href="#contact" class="btn">Book Your Event</a>
 </div>
 </section>
 
 <!-- SERVICES -->
-<section class="fade">
-<h2 style="text-align:center; color:#c9a84c;">Our Expertise</h2>
+<section>
+<h2>Our Expertise</h2>
 
 <div class="services">
 
-<div class="card">
+<div class="card reveal">
 <h3>Wedding Planning</h3>
-<p>End-to-end luxury wedding planning designed to reflect elegance, emotion, and perfection.</p>
+<p>End-to-end luxury wedding execution designed with precision and elegance.</p>
 </div>
 
-<div class="card">
-<h3>Premium Decoration</h3>
-<p>Exclusive themes, royal setups, and aesthetic lighting that redefine visual experience.</p>
+<div class="card reveal">
+<h3>Event Design</h3>
+<p>Signature décor, lighting, and themes tailored to elite experiences.</p>
 </div>
 
-<div class="card">
-<h3>Event Management</h3>
-<p>Flawless execution with elite coordination ensuring a stress-free and grand event.</p>
+<div class="card reveal">
+<h3>Full Management</h3>
+<p>Seamless coordination of venues, vendors, and guests from start to finish.</p>
 </div>
 
 </div>
 </section>
 
 <!-- TESTIMONIAL -->
-<section class="testimonial fade">
-<p>"Nick Event’s turned our dream wedding into a royal reality. Every detail was flawless and beyond expectations."</p>
-<h4>- Happy Client</h4>
+<section>
+<h2>Client Experience</h2>
+
+<div class="testimonial reveal">
+“Nick Event's transformed our wedding into a royal experience. Every detail was flawless.”
+<strong>— Premium Client</strong>
+</div>
 </section>
 
 <!-- CTA -->
-<section class="cta fade" id="contact">
-<h2>Let’s Create Something Extraordinary</h2>
-<p>Book your premium event experience today</p>
-<a href="https://wa.me/9509287774">Start Planning</a>
+<section class="cta" id="contact">
+<h2>Plan Your Luxury Event</h2>
+<p style="margin-bottom:20px;">Let’s create something unforgettable.</p>
+
+<a href="https://wa.me/9509287774" class="btn">Contact Now</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-© 2026 Nick Event's | Luxury Experience Redefined
+© 2026 Nick Event's | Luxury Event Management
 </footer>
 
-<!-- SCRIPT -->
 <script>
 
-// smooth scroll animation
-const faders = document.querySelectorAll('.fade');
+/* SCROLL ANIMATION */
+window.addEventListener('scroll', function(){
+let reveals = document.querySelectorAll('.reveal');
 
-window.addEventListener('scroll', () => {
-faders.forEach(el => {
-const rect = el.getBoundingClientRect().top;
-if(rect < window.innerHeight - 100){
-el.classList.add('show');
+reveals.forEach(el => {
+let windowHeight = window.innerHeight;
+let elementTop = el.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+el.classList.add('active');
 }
 });
 });
